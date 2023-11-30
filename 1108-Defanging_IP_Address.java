@@ -21,15 +21,21 @@
 
 // # Solution
 
+
+     // Solution-1: Using replace method 
+
 class Solution {
     public String defangIPaddr(String address) {
-
-        // Solution-1: Using replace method 
-
+       
         return address.replace(".","[.]");
+    }
+}
 
-        // Solution-2: Using String Builder 
+    // Solution-2: Using the String Builder method O(n2)
 
+class Solution {
+    public String defangIPaddr(String address) {
+     
         StringBuilder defangedAddress = new StringBuilder();  // declare String builder to hold defanged IP Address
         for(int i = 0; i < address.length(); i++){  // Iterate over address String
             char ch = address.charAt(i);            // get character at particular index
@@ -43,20 +49,34 @@ class Solution {
     }
 }
 
- // Other approaches from solutions
-
-        public String defangIPaddr(String address) {
+// Solution-3: using String join & Split methods
+class Solution {
+    public String defangIPaddr(String address) {
             return String.join("[.]", address.split("\\."));
-        }
+    }
+}
 
-        public String defangIPaddr(String address) {
+// Solution-4: Using replaceAll method
+class Solution {
+     public String defangIPaddr(String address) {
             return address.replaceAll("\\.", "[.]");
-        }
+    }
+}
 
-        public String defangIPaddr(String address) {
-            StringBuilder sb = new StringBuilder();
-            for (char c: address.toCharArray()) {
-                sb.append(c == '.' ? "[.]" : c);
-            }
-            return sb.toString();
+// solution-5: using String builder with O(n)
+class Solution {
+    public String defangIPaddr(String address) {
+         StringBuilder sb = new StringBuilder();
+         for (char c: address.toCharArray()) {
+              sb.append(c == '.' ? "[.]" : c);
          }
+         return sb.toString();
+    }
+}
+
+
+        
+
+       
+
+        
